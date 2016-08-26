@@ -1,0 +1,21 @@
+<!-- container -->
+<div id="log-in-main-container">
+	<div class="dash_text">Welcome to Admin Dashboard!</div>
+  <div class="login_panel">
+    <div class="login-content">
+    
+      <form name="mainForm" action="index.php" method="post" novalidate>
+        <input class="login-input" type="text" id="username" name="username" ng-model="adminLoginCtrl.username" required>
+        
+        <input class="login-input" type="password" id="password" name="password" ng-model="adminLoginCtrl.password" required>
+        <input class="button-min" type="button" ng-click="adminLoginCtrl.login()" value="登录一下吧">
+        <div>
+	        <span>Request Username : {{adminLoginCtrl.username}}</span>
+	        <br/>
+	        <h4>Status : {{adminLoginCtrl.status}}</h4>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- container -->
