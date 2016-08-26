@@ -23,9 +23,5 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     	controllerAs : 'adminLoginCtrl',
     	caseInsensitiveMatch : false
     })
-    .when("/sam", {
-    	templateUrl : "samPage/samPage.html",
-    	caseInsensitiveMatch : false
-    })
     .otherwise('/admin/login');
 }]);
