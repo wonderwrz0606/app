@@ -9,14 +9,18 @@ angular.module('adminLoginPage', ['ngRoute','coreService'])
 	self.login = function(){
 		self.pattern = '/login_test';
 		self.data = '{"username":"samdev","password":"123456"}';
-		self.result = OperrHttpService.post(self.pattern, self.data);
-		alert(self.result.data);
-		if(self.result.status == "SUCCESS"){
-			$window.location.href = '#/admin/dashboard/view';
-		}
-		else{
-			alert("FAIL");
-		}
+		self.promise = OperrHttpService.post(self.pattern, self.data);
+		self.promise
+		.then(
+			function(response){
+				self.result = response.data;
+				if(self.result.result == "SUCCESS"){
+					$window.location.href = '#/admin/dashboard/view';
+				}else{
+					alert("Invalid username/password.");
+				}
+			}
+		);
 	}
 	
 //	self.login = function(){
