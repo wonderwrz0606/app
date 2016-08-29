@@ -38,13 +38,14 @@
   	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
   	<script src="app.js"></script>
-  	<script src="adminMgmtPage/adminMgmtPage-controller.js"></script>
-  	<script src="adminLoginPage/adminLoginPage-controller.js"></script>
+  	<script src="adminMgmtPage/adminMgmtPageController.js"></script>
+  	<script src="adminLoginPage/adminLoginPageController.js"></script>
+  	<script src="adminDashboardPage/adminDashboardPageController.js"></script>
   	<script src="components/version/version.js"></script>
   	<script src="components/version/version-directive.js"></script>
   	<script src="components/version/interpolate-filter.js"></script>
-  	<script src="components/header/header.js"></script>
-  	<script src="components/footer/footer.js"></script>
-  	<script src="services/test.js"></script>
+  	<script src="components/header/headerController.js"></script>
+  	<script src="components/footer/footerController.js"></script>
+  	<script src="services/coreService.js"></script>
 </body>
 </html>

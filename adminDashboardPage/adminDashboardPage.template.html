@@ -1,0 +1,92 @@
+<div id="page-wrapper">
+	<!-- row -->
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="panel panel-info">
+				<div class="earned">
+					<div class="panel_inside">
+						{if $permission >= $admin_level.SUB_SUPER_ADMIN}
+						<h2>0.00</h2>
+						<h5>{$language_package.dsp_share}</h5>
+						{elseif $permission >= $admin_level.SUB_COMPANY_ADMIN}
+						<h2>0.00</h2>
+						<h5>{$language_package.company_share}</h5>
+						{elseif $permission >= $admin_level.SUB_BASE_ADMIN}
+						<h2>0.00</h2>
+						<h5>{$language_package.base_share}</h5>
+						{/if}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-tru">
+				<div class="tru-share">
+					<div class="panel_inside">
+						<h2>0.00</h2>
+						<h5>{$language_package.driver_share}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-warning">
+				<div class="trips">
+					<div class="panel_inside">
+						<h2>0.00</h2>
+						<h5>{$language_package.trips}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		{if $permission >= $admin_level.SUB_SUPER_ADMIN}
+		<div class="col-lg-3">
+			<div class="panel panel-danger">
+				<div class="new-user">
+					<div class="panel_inside">
+						<h2>0.00</h2>
+						<h5>{$language_package.users}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		{/if}
+		<div class="col-lg-3">
+			<div class="panel panel-success">
+				<div class="new-driver">
+					<div class="panel_inside">
+						<h2>0.00</h2>
+						<h5>{$language_package.drivers}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-warning">
+				<div class="trips">
+					<div class="panel_inside">
+						<h2>0.00</h2>
+						<h5>{$language_package.on_duty}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-danger">
+				<div class="new-user">
+					<div class="panel_inside">
+						<h2>0.00</h2>
+						<h5>{$language_package.off_duty}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- row -->
+
+	<!-- row -->
+	<div class="row">
+		<div class="col-xs-6">{include file="../map/mapV2_main_page.php"}</div>
+	</div>
+	<!-- row -->
+</div>
