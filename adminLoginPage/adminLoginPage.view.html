@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <!-- container -->
 <div id="log-in-main-container">
 	<div class="dash_text">Welcome to Admin Dashboard!</div>
@@ -8,14 +10,14 @@
         <input class="login-input" type="text" id="username" name="username" ng-model="adminLoginCtrl.username" required>
         
         <input class="login-input" type="password" id="password" name="password" ng-model="adminLoginCtrl.password" required>
-        <input class="button-min" type="button" ng-click="adminLoginCtrl.login()" value="登录一下吧">
+        <input ng-click="adminLoginCtrl.login()" ng-disabled="mainForm.$invalid" class="btn btn-info" type="button" value="Login">
         <div>
-	        <span>Request Username : {{adminLoginCtrl.username}}</span>
-	        <br/>
-	        <h4>Status : {{adminLoginCtrl.status}}</h4>
+	        <h6>Status : {{adminLoginCtrl.status}}</h6>
         </div>
       </form>
     </div>
   </div>
 </div>
 <!-- container -->
+
+<app-footer></app-footer>

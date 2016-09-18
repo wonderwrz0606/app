@@ -1,0 +1,6 @@
+<script src="adminMgmtPage/adminMgmtPageController.js"></script>
+<script src="adminLoginPage/adminLoginPageController.js"></script>
+<script src="adminDashboardPage/adminDashboardPageController.js"></script>
+<script src="components/header/headerController.js"></script>
+<script src="components/footer/footerController.js"></script>
+<script src="services/coreService.js"></script>

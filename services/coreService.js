@@ -6,24 +6,24 @@ angular.module('coreService',[])
 //	};
 //	
 //	this.get = function(pattern, data){
-//		$http.get(CONFIG.DOMAIN + pattern, data)
+//		$http.get(CONFIG.DOMAIN + pattern)
 //		.then(function(response){
-//			console.log(promise);
-//			return response.data;
+//			console.log(response);
+//			return response;
 //		}, function(response){
-//			console.log(promise);
-//			return response.data;
+//			console.log(response);
+//			return response;
 //		});
 //	};
 //	
 //	this.post = function(pattern, data){
 //		$http.post(CONFIG.DOMAIN + pattern, data)
 //		.then(function(response){
-//			console.log(promise);
-//			return response.data;
+//			console.log(response);
+//			return response;
 //		}, function(response){
-//			console.log(promise);
-//			return response.data;
+//			console.log(response);
+//			return response;
 //		});
 //	};
 //});
@@ -32,51 +32,71 @@ angular.module('coreService',[])
 .factory('OperrHttpService', function($http, CONFIG) {
 	var promise;
 	
-	//Style 1
-	//	return {
-	//		get : get,
-	//		post : post
-	//	};
-	//
-	//	function get(pattern, data) {
-	//        promise = $http({
-	//        	method: 'GET',
-	//        	url: CONFIG.DOMAIN + pattern,
-	//        	params: data
-	//	    });
-	//		console.log(promise);
-	//		return promise;
-	//	}
-	//
-	//	function post(pattern, data) {
-	//		promise = $http({
-	//        	method: 'POST',
-	//        	url: CONFIG.DOMAIN + pattern,
-	//        	data: data
-	//	    });
-	//		console.log(promise);
-	//		return promise;
-	//	}
-
-	//Style 2
 	return {
-	    get : function(pattern, data) {
-	    	promise = $http({
-	    		method: 'GET',
-	    		url: CONFIG.DOMAIN + pattern,
-	    		params: data
-		    });
-	    	console.log(promise);
-	    	return promise;
-	    },
-	    post : function(pattern, data) {
-	    	promise = $http({
-	    		method: 'POST',
-	    		url: CONFIG.DOMAIN + pattern,
-	    		data: data
-		    });
-	    	console.log(promise);
-	    	return promise;
-		}
+		get : getHttpService,
+		post : postHttpService
+	};
+
+	function getHttpService(pattern, data) {
+        promise = $http({
+        	method: 'GET',
+        	url: CONFIG.DOMAIN + pattern,
+        	params: data
+	    });
+		return promise;
+	}
+	
+	function postHttpService(pattern, data) {
+		promise = $http({
+        	method: 'POST',
+        	url: CONFIG.DOMAIN + pattern,
+        	data: data
+	    });
+		return promise;
+	}
+})
+
+.factory('OperrLoginInfoService', function(){
+	var admin;
+	var menu;
+	
+	return{
+		setAdmin: setAdmin,
+		getAdmin: getAdmin,
+		setHeaderMenu: setHeaderMenu,
+		getHeaderMenu: getHeaderMenu
+	}
+	
+	function setAdmin(_admin){
+		admin = _admin;
+	}
+	
+	function getAdmin(){
+		return admin;
+	}
+	
+	function setHeaderMenu(_menu){
+		menu = _menu;
+	}
+	
+	function getHeaderMenu(){
+		return menu;
 	}
 });
+
+//.factory('OperrTargetService', function(){
+//	var target;
+//	
+//	return{
+//		setTarget: setTarget,
+//		getTarget: getTarget
+//	}
+//	
+//	function setTarget(_target){
+//		target = _target;
+//	}
+//	
+//	function getTarget(){
+//		return target;
+//	}
+//});

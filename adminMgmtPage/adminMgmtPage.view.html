@@ -1,0 +1,103 @@
+<app-header></app-header>
+
+Login Success, Here is the Admin Management Page!
+<br/>
+<a href="#/admin/adminMgmt/create/0">admin create link</a>
+<br/>
+<a href="#/admin/adminMgmt/update/1">admin update link</a>
+<br/>
+
+<div class="row" style="margin-bottom:10px;">
+  <div class="col-lg-6 total_record">
+  <!-- {$total_rec} -->
+  </div>
+  <div class="col-lg-6 dash-padination">
+  <!-- {$paging} -->
+  </div>
+</div>
+<div class="dash-search">
+    <form name="frm"  action="" method="post" id="search_box">
+        <div class="wrapper">
+            <input type="text" id="search" name="search_content" placeholder="Search.." />
+            <input type="hidden"  name="search" value="1"  />
+            <button type="submit" class="search_btn"><img src="images/search_icon.png" title="Search" /></button>
+        </div>
+    </form>
+</div>
+<form name='frm_list' method='post'>
+	<input type='hidden' name='action' id='Action'>
+	<div class="SelDiv" style="width:100%;">
+		<div class="top-button"><a class="delete_links" href="#" onClick="SetAction('Delete',document.frm_list)" title='Delete'>Delete Selected</a></div> 
+	    <div class="top-button"><a class="activate_links" href="#" onClick="SetAction('Activate',document.frm_list)" title='Activate'>Activate Selected</a></div> 
+	    <div class="top-button"><a class="deactivate_links" href="#" onClick="SetAction('Deactivate',document.frm_list)"  title='Deactivate'>Deactivate Selected</a></div>
+	    <div class="clear"></div>
+	</div>
+
+	<!--Alert area -->
+	<div class="{if $msg_code != 'error' && $msg_code != 'delete'}alert alert-success alert-dismissable{else}alert alert-danger alert-dismissable{/if}">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  	<!-- {$msg}  -->
+	</div>
+	<!--Alert area -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<!-- dash-container-all -->
+			<div class="dash-container-all">
+	        	<div class="dash-content-all">
+					<table class="dash-table" width="100%">
+						<tr class="table-header">
+						    <td class="dash-header-all"><div><a href="index.php?{$query_str}&amp;f=status&amp;s={$sort}">Status</a></div></td>
+						    <td class="dash-header-all"><div> <a href="index.php?{$query_str}&amp;f=username&amp;s={$sort}">Username</div></th>
+						    <td class="dash-header-all"><div> <a href="index.php?{$query_str}&amp;f=email&amp;s={$sort}">Email</div></th>
+						    <td class="dash-header-all"><div> <a href="index.php?{$query_str}&amp;f=permission&amp;s={$sort}">Admin Level</div></th>
+						    <td class="dash-header-all"><img alt="" src="images/user-icon.png"></th>
+						    <td class="dash-header-all"><div> <a href="index.php?{$query_str}&amp;f=company_id&amp;s={$sort}">Company</a></div></th>
+							<td class="dash-header-all"><div> <a href="index.php?{$query_str}&amp;f=base_id&amp;s={$sort}">Base</a></div></th>
+						    <td class="dash-header-all"><div> <a href="index.php?{$query_str}&amp;f=first_name&amp;s={$sort}">Name</div></th>
+						    <td class="dash-header-all"><div>Action</div></th>
+						</tr>
+						<!-- {if $rec_all|count} -->
+						<!-- {foreach key=key item=rec from=$rec_all} -->
+						<tr class="{php} css('table-content odd','table-content even'){/php}">
+							<td onclick="document.location = 'index.php?{$query_str}&id={$rec.id}';" class="center">
+								<img src="images/active.png" alt="Active">
+				              	<!-- <img src="images/inactive.png" alt="Deactive"> -->
+							</td>
+							<td onclick="document.location = 'index.php?{$query_str}&id={$rec.id}';" class="center"></td>
+							<td class="center"><a href="mailto:{$rec.email}"></a></td>
+							<td onclick="document.location = 'index.php?{$query_str}&id={$rec.id}';" class="center"></td>
+							<td onclick="document.location = 'index.php?{$query_str}&id={$rec.id}';" class="center">
+								<div class="driver-image2">
+									<img src="images/driver-default.jpg">
+								</div>
+							</td>
+							<td onclick="document.location = 'index.php?{$query_str}&id={$rec.id}';" class="center"></td>
+							<td onclick="document.location = 'index.php?{$query_str}&id={$rec.id}';" class="center"></td>
+							<td onclick="document.location = 'index.php?{$query_str}&id={$rec.id}';" class="center"></td>
+							<td class="tooltip-demo center">
+								<span><a data-toggle="tooltip" data-placement="top" title="Edit" href="index.php?{$query_str}&action=Create&id={$rec.id}"><img src="images/edit.png"></a></span>
+								<span><a data-toggle="tooltip" data-placement="top" title="Delete" href="index.php?{$query_str}&action=Delete&id={$rec.id|md5}" onclick="return confirm('Do You Want to Delete ID: {$rec.id}?');"><img src="images/delite.png"></a></span>
+							</td>
+						</tr>
+						<tr><td colspan="6">Records not found.</td></tr>
+					</table>
+				</div>
+			</div>
+			<!-- dash-container-all -->
+		</div>
+	</div>
+	<!-- row -->
+</form>
+<div class="clear"></div>
+
+<div class="row">
+  <div class="col-lg-6">
+  <!-- {$total_rec} -->
+  </div>
+  <div class="col-lg-6 dash-padination">
+  <!-- {$paging} -->
+  </div>
+</div>
+
+<app-footer></app-footer>

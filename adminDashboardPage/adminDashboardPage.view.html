@@ -1,0 +1,117 @@
+<app-header></app-header>
+
+<div id="page-wrapper">
+	<!-- row -->
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="panel panel-info">
+				<div class="earned">
+					<div class="panel_inside">
+						<h2 ng-if="adminDashboardCtrl.admin.permission >= 80">${{adminDashboardCtrl.result.dsp_share}}</h2>
+						<h5 ng-if="adminDashboardCtrl.admin.permission >= 80">{{adminDashboardCtrl.admin.permission}}Dsp Share</h5>
+						
+						<h2 ng-if="adminDashboardCtrl.admin.permission > 20 && adminDashboardCtrl.admin.permission < 80">${{adminDashboardCtrl.result.base_share}}</h2>
+						<h5 ng-if="adminDashboardCtrl.admin.permission > 20 && adminDashboardCtrl.admin.permission < 80">Company Share</h5>
+						
+						<h2 ng-if="adminDashboardCtrl.admin.permission <= 20">${{adminDashboardCtrl.result.base_share}}</h2>
+						<h5 ng-if="adminDashboardCtrl.admin.permission <= 20">Base Share</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-tru">
+				<div class="tru-share">
+					<div class="panel_inside">
+						<h2>${{adminDashboardCtrl.result.driver_share}}</h2>
+						<h5>Driver Share</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-warning">
+				<div class="trips">
+					<div class="panel_inside">
+						<h2>{{adminDashboardCtrl.result.total_trips}}</h2>
+						<h5>Trips</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="true" class="col-lg-3">
+			<div class="panel panel-danger">
+				<div class="new-user">
+					<div class="panel_inside">
+						<h2>{{adminDashboardCtrl.result.total_users}}</h2>
+						<h5>Users</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-success">
+				<div class="new-driver">
+					<div class="panel_inside">
+						<h2>{{adminDashboardCtrl.result.total_drivers}}</h2>
+						<h5>Drivers</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-warning">
+				<div class="trips">
+					<div class="panel_inside">
+						<h2>{{adminDashboardCtrl.result.on_duty}}</h2>
+						<h5>On Duty</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-danger">
+				<div class="new-user">
+					<div class="panel_inside">
+						<h2>{{adminDashboardCtrl.result.off_duty}}</h2>
+						<h5>Off Duty</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- row -->
+
+	<!-- row -->
+	<div class="row">
+		<!-- <div class="col-xs-6">{include file="../map/mapV2_main_page.php"}</div> -->
+		<div class="col-xs-6">
+			<!-- <admin-dashboard-map></admin-dashboard-map>  -->
+			<div class="test">{{adminDashboardCtrl.name}}</div>
+			<div class="form-group">
+				<input type="hidden" id="scope" value={$scope}>
+				<input type="hidden" name="live_url" id="live_url" value="<?php echo $LIVE_URL;?>">
+				<div class="btn-group" role="group" aria-label="buttons">
+				  <button type="button" class="btn btn-warning" id='startauto'  value="auto refresh" onclick="autorefresh();">Auto refresh</button>
+			  	</div>
+			  	<div class="btn-group" role="group" aria-label="buttons">
+				  <button type="button" class="btn btn-danger" id='stopauto' disabled='disabled' value="stop auto refresh" onclick="stopautorefresh();">Stop auto refresh</button>
+				  </div>
+			  	<div class="btn-group" role="group" aria-label="buttons">	
+				  <button type="button" class="btn btn-success" id='refresh' value="Manual Refresh" onclick="dorefresh();">Manual Refresh</button>
+				</div>
+		<!-- 		<div class="btn-group" role="group" aria-label="buttons">	 -->
+		<!-- 	    <button type="button" class="btn btn-info" id='pop-up-map' value="Pop-up Map" onclick="window.open('index.php?page=booking_manager&action=Map');">Pop-up Map</button>  -->
+		<!-- 		</div> -->
+		<!-- 		<div class="btn-group" role="group" aria-label="buttons">	 -->
+		<!-- 	    <button type="button" class="btn btn-default" id='hide-map' value="Hidden Map" onclick="change_hidden();">Hide Map</button>  -->	
+		<!-- 		</div> -->
+			</div>
+			<br>
+			<div id="map-canvas" style="min-height: 400px;height: auto;width: max-width:500px;width: 100%; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);"></div>
+		</div>
+	</div>
+	<!-- row -->
+</div>
+
+<app-footer></app-footer>
