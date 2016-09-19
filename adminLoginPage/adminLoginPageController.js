@@ -2,67 +2,54 @@
 
 angular.module('adminLoginPage', [
 	'ngRoute',
-	'coreService',
+	'ngAnimate',
+	'ngTouch',
+	'ui.bootstrap',
+	'adminLoginService',
 	'coreApp.header',
 	'coreApp.footer'
 ])
 
-.controller('adminLoginPageCtrl', function($scope, $http, $window, OperrHttpService, OperrLoginInfoService) {
+.controller('adminLoginPageCtrl', function($scope, $http, $window, AdminLoginService) {
 	var self = this;
 	self.username = '';
 	self.password = '';
-//	$http.defaults.headers.common['Authorization'] = "Isjimo";
-	
+	self.status = "FALSE";
+
+// Login with the input username & password
 	self.login = function(){
-		self.pattern = '/login_test';
-		self.data = '{"username":"' + self.username + '","password":' + self.password + '}';
-		self.promise = OperrHttpService.post(self.pattern, self.data);
+		self.promise = AdminLoginService.login(self.username, self.password);
 		self.promise
 		.then(
 			function(response){
 				if(response.data.result == "SUCCESS"){
 					self.admin = response.data.data.admin;
-					OperrLoginInfoService.setAdmin(self.admin);
-					
-					self.pattern = '/get_admin_menu';
-					self.data = '{"admin_id":' + self.admin.id + '}';
-					self.promise = OperrHttpService.post(self.pattern, self.data);
+					AdminLoginService.setAdmin(self.admin);
+
+					// Get request header menu
+					self.promise = AdminLoginService.getHeaderMenuInfo();
 					self.promise
 					.then(
 						function(response){
 							if(response.data.result == "SUCCESS"){
 								self.menu = response.data.data.menu_list;
-								OperrLoginInfoService.setHeaderMenu(self.menu);
+								AdminLoginService.setHeaderMenu(self.menu);
 								$window.location.href = '#/admin/dashboard/view';
 							}else{
-								alert('Login Error! No info for header.');
+								alert('AdminLoginPageController Error! No header info for this admin.');
 							}
 						},
 						function(response){
-							alert("Login Error! adminHeader Error.");
+							alert("AdminLoginPageController API Error!");
 						}
 					);
 				}else{
-					alert("Login Error! Invalid username/password.");
+					alert("AdminLoginPageController Error! Invalid username/password.");
 				}
 			},
 			function(response){
-				alert("Login Error! AdminLoginPageController Error.");
+				alert("AdminLoginPageController API Error!");
 			}
 		);
 	}
-	
-//	self.login = function(){
-//			$http.post('/laravel/public/admin/login_test','{"username":"' + self.username + '","password":"' + self.password + '"}')
-//			.then(function(response){
-//				self.status = response.data.status;
-//				self.header = response.data.header;
-//				if(self.status == "SUCCESS"){
-//					$window.location.href = '#/admin/dashboard/view';
-//				}
-//			}, function(response){
-//				slef.status = response.data.status;
-//				self.header = response.data.header;
-//		});
-//	}
 });

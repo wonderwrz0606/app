@@ -4,6 +4,9 @@
 /*-----------------------------------*/
 			/*Comman part*/
 /*-----------------------------------*/
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 body{
 	margin:0;
 	padding:0;
@@ -65,7 +68,7 @@ img{
   -ms-interpolation-mode: bicubic;
 }
 h1, h2, h3, h4, h5, h6 {
-		font-weight: normal; 
+		font-weight: normal;
 }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
@@ -103,7 +106,7 @@ a:hover, a:active {
 p a, p a:visited {
     font-weight: inherit;
     line-height: inherit;
-} 
+}
 button {
     transition: all 0.2s linear 0s;
 }
@@ -134,7 +137,7 @@ a.normal_button{
 	-o-transition: all 400ms ease-in-out ;
 }
 a.normal_button:hover{
-	background:#6c6c6c;	
+	background:#6c6c6c;
 }
 /*-----------------main----------------*/
 .wraper{
@@ -304,7 +307,7 @@ a.normal_button:hover{
 }
 .readmore:hover{
 	background-color:#333333;
-	color:#ffffff !important;	
+	color:#ffffff !important;
 }
 .normal_section{
 	width:100%;
@@ -755,7 +758,7 @@ font-size:20px;
 	background-color:#ebebeb;
 	padding:20px 0;
 }
-.profile_header2{	
+.profile_header2{
 	padding:20px 0;
 }
 .driver-inner{
@@ -918,7 +921,7 @@ float:right;
 	color:#ffffff !important;
 	position:relative;
 	padding:7px 20px;
-	padding-right:50px;	
+	padding-right:50px;
 	-webkit-appearance:none;
 }
 
@@ -961,7 +964,7 @@ float:right;
 	display: inline!important;
 	width: auto!important;
 
-}			
+}
 .social-icons li a {
 	-moz-transition: all 0.3s ease 0s;
 	display: block!important;
@@ -1405,7 +1408,7 @@ width: 40px;
     width: 100%;
 }
 
-#overlay { 
+#overlay {
    background-color: grey;
    opacity: 0.5;
    width: 100%;

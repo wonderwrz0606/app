@@ -9,10 +9,10 @@
 					<div class="panel_inside">
 						<h2 ng-if="adminDashboardCtrl.admin.permission >= 80">${{adminDashboardCtrl.result.dsp_share}}</h2>
 						<h5 ng-if="adminDashboardCtrl.admin.permission >= 80">{{adminDashboardCtrl.admin.permission}}Dsp Share</h5>
-						
+
 						<h2 ng-if="adminDashboardCtrl.admin.permission > 20 && adminDashboardCtrl.admin.permission < 80">${{adminDashboardCtrl.result.base_share}}</h2>
 						<h5 ng-if="adminDashboardCtrl.admin.permission > 20 && adminDashboardCtrl.admin.permission < 80">Company Share</h5>
-						
+
 						<h2 ng-if="adminDashboardCtrl.admin.permission <= 20">${{adminDashboardCtrl.result.base_share}}</h2>
 						<h5 ng-if="adminDashboardCtrl.admin.permission <= 20">Base Share</h5>
 					</div>
@@ -97,17 +97,21 @@
 			  	<div class="btn-group" role="group" aria-label="buttons">
 				  <button type="button" class="btn btn-danger" id='stopauto' disabled='disabled' value="stop auto refresh" onclick="stopautorefresh();">Stop auto refresh</button>
 				  </div>
-			  	<div class="btn-group" role="group" aria-label="buttons">	
+			  	<div class="btn-group" role="group" aria-label="buttons">
 				  <button type="button" class="btn btn-success" id='refresh' value="Manual Refresh" onclick="dorefresh();">Manual Refresh</button>
 				</div>
 		<!-- 		<div class="btn-group" role="group" aria-label="buttons">	 -->
 		<!-- 	    <button type="button" class="btn btn-info" id='pop-up-map' value="Pop-up Map" onclick="window.open('index.php?page=booking_manager&action=Map');">Pop-up Map</button>  -->
 		<!-- 		</div> -->
 		<!-- 		<div class="btn-group" role="group" aria-label="buttons">	 -->
-		<!-- 	    <button type="button" class="btn btn-default" id='hide-map' value="Hidden Map" onclick="change_hidden();">Hide Map</button>  -->	
+		<!-- 	    <button type="button" class="btn btn-default" id='hide-map' value="Hidden Map" onclick="change_hidden();">Hide Map</button>  -->
 		<!-- 		</div> -->
 			</div>
 			<br>
+			<div>
+  			<ng-map center="41,-87" zoom="3"></ng-map>
+			</div>
+			<hr>
 			<div id="map-canvas" style="min-height: 400px;height: auto;width: max-width:500px;width: 100%; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);"></div>
 		</div>
 	</div>

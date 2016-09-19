@@ -1,10 +1,10 @@
-angular.module('coreService',[])
+angular.module('coreService',['ngCookies'])
 //First way to write service in Angular: service
 //.service('OperrHttpService', function ($http, CONFIG) {
 //	this.testConstant = function(){
 //		return CONFIG.DOMAIN;
 //	};
-//	
+//
 //	this.get = function(pattern, data){
 //		$http.get(CONFIG.DOMAIN + pattern)
 //		.then(function(response){
@@ -15,7 +15,7 @@ angular.module('coreService',[])
 //			return response;
 //		});
 //	};
-//	
+//
 //	this.post = function(pattern, data){
 //		$http.post(CONFIG.DOMAIN + pattern, data)
 //		.then(function(response){
@@ -29,9 +29,9 @@ angular.module('coreService',[])
 //});
 
 //Second way to write service in Angular: factory
-.factory('OperrHttpService', function($http, CONFIG) {
+.factory('HttpService', function($http, CONFIG) {
 	var promise;
-	
+
 	return {
 		get : getHttpService,
 		post : postHttpService
@@ -45,7 +45,7 @@ angular.module('coreService',[])
 	    });
 		return promise;
 	}
-	
+
 	function postHttpService(pattern, data) {
 		promise = $http({
         	method: 'POST',
@@ -54,48 +54,20 @@ angular.module('coreService',[])
 	    });
 		return promise;
 	}
-})
-
-.factory('OperrLoginInfoService', function(){
-	var admin;
-	var menu;
-	
-	return{
-		setAdmin: setAdmin,
-		getAdmin: getAdmin,
-		setHeaderMenu: setHeaderMenu,
-		getHeaderMenu: getHeaderMenu
-	}
-	
-	function setAdmin(_admin){
-		admin = _admin;
-	}
-	
-	function getAdmin(){
-		return admin;
-	}
-	
-	function setHeaderMenu(_menu){
-		menu = _menu;
-	}
-	
-	function getHeaderMenu(){
-		return menu;
-	}
 });
 
 //.factory('OperrTargetService', function(){
 //	var target;
-//	
+//
 //	return{
 //		setTarget: setTarget,
 //		getTarget: getTarget
 //	}
-//	
+//
 //	function setTarget(_target){
 //		target = _target;
 //	}
-//	
+//
 //	function getTarget(){
 //		return target;
 //	}

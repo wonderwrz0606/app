@@ -1,38 +1,29 @@
 'use strict';
 
-//function initCall() {
-//	console.log('Google maps api initialized.');
-//	angular.bootstrap(document.getElementById('map-canvas'), ['coreApp.map']);
-//}
-
-//function initMap() {
-//	alert(123);
-//	console.log('test google map api.');
-//    map = new google.maps.Map(document.getElementById('map-canvas'), {
-//      center: {lat: -34.397, lng: 150.644},
-//      zoom: 8
-//    });
-//}
-
 angular.module('adminDashboardPage', [
 	'ngRoute',
-	'coreService',
+	'ngAnimate',
+  'ngTouch',
+  'ui.bootstrap',
+  'ngMap',
+	'adminDashboardService',
+	'adminLoginService',
 	'coreApp.header',
 	'coreApp.footer'
 ])
 
-.controller('adminDashboardPageCtrl', function($scope, $http, $window, OperrHttpService, OperrLoginInfoService) {
+.controller('adminDashboardPageCtrl', function($scope, $http, $window, AdminDashboardService, AdminLoginService, NgMap) {
 	var self = this;
+
 	self.name = "adminDashboardPage";
 //	self.pattern = "/get_dashboard_info";
 	self.pattern = "/rmget_dashboard_info";
 	self.data = {};
 	self.result ={};
-	self.admin = OperrLoginInfoService.getAdmin();
+	self.admin = AdminLoginService.getAdmin();
 	if(typeof self.admin != "undefined" && self.admin.id != 0){
-		self.data = {admin_id: self.admin.id};
 //		self.promise = OperrHttpService.get(self.pattern, self.data);
-		self.promise = OperrHttpService.post(self.pattern, self.data);
+		self.promise = AdminDashboardService.get_dashboard_info();
 		self.promise
 			.then(
 				function(response){
@@ -47,4 +38,22 @@ angular.module('adminDashboardPage', [
 				}
 			);
 	}
+
+// Add google map via NgMap Service
+  NgMap.getMap().then(function(map) {
+    console.log(map.getCenter());
+    console.log('markers', map.markers);
+    console.log('shapes', map.shapes);
+  });
+
+// Add google map via custom
+	var mapOptions = {
+        zoom: 14,
+        maxZoom: 15,
+     	center: new google.maps.LatLng(40.769873, -73.840992),
+//     	center: new google.maps.LatLng(40.71278, -74.00594),
+    	mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+	self.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
 });

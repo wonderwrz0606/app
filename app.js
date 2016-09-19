@@ -1,18 +1,19 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('coreApp', [
+var app = angular.module('coreApp', [
   'ngRoute',
   'adminLoginPage',
   'adminDashboardPage',
   'adminMgmtPage'
-])
+]);
 
-.constant('CONFIG', {
-	DOMAIN: '/laravel/public/admin'
-})
+// This part has moved to app.config.js file
+// app.constant('CONFIG', {
+// 	DOMAIN: '/laravel/public/admin'
+// })
 
-.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $routeProvider
     .when("/admin/dashboard/view", {
     	templateUrl : "adminDashboardPage/adminDashboardPage.view.html",
