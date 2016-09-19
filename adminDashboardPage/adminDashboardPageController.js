@@ -34,6 +34,8 @@ angular.module('adminDashboardPage', [
 					alert("adminDashboardPageController Error");
 				}
 			);
+	}else{
+		alert("no admin");
 	}
 
 // Add google map via NgMap Service
