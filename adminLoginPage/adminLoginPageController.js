@@ -32,8 +32,8 @@ angular.module('adminLoginPage', [
 					.then(
 						function(response){
 							if(response.data.result == "SUCCESS"){
-								self.menu = response.data.data.menu_list;
-								AdminLoginService.setHeaderMenu(self.menu);
+								self.result = response.data.data.menu_list;
+								AdminLoginService.setHeaderMenu(self.result);
 								$window.location.href = '#/admin/dashboard/view';
 							}else{
 								alert('AdminLoginPageController Error! No header info for this admin.');

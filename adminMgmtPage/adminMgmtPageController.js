@@ -3,18 +3,19 @@
 angular.module('adminMgmtPage', [
 	'ngRoute',
 	'coreService',
+	'adminLoginService',
 	'coreApp.header',
 	'coreApp.footer'
 ])
 
-.controller('adminMgmtPageCtrl', function($scope, $routeParams, OperrHttpService, OperrLoginInfoService) {
+.controller('adminMgmtPageCtrl', function($scope, $routeParams, HttpService, AdminLoginService) {
 	var self = this;
-	self.admin_user = OperrLoginInfoService.getAdmin();
+	self.admin_user = AdminLoginService.getAdmin();
 //	Get single admin info
 	if($routeParams.adminId){
 		self.data = '{"admin_id":' + $routeParams.adminId + '}';
 		self.pattern = '/get_admin_info';
-		self.promise = OperrHttpService.post(self.pattern, self.data);
+		self.promise = HttpService.post(self.pattern, self.data);
 		self.promise
 		.then(
 			function(response){
@@ -33,7 +34,7 @@ angular.module('adminMgmtPage', [
 	}else{
 		self.data = '{"admin_id":' + self.admin_user.id + '}';
 		self.pattern = '/get_admin_list';
-		self.promise = OperrHttpService.post(self.pattern, self.data);
+		self.promise = HttpService.post(self.pattern, self.data);
 		self.promise
 		.then(
 			function(response){

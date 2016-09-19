@@ -13,7 +13,6 @@ angular.module('coreApp.header',[
 			self.admin = AdminLoginService.getAdmin();
 			self.result = AdminLoginService.getHeaderMenu();
 		}else{
-			alert('getAdminInfo');
 			self.promise = AdminLoginService.getAdminInfo();
 			self.promise
 			.then(
@@ -28,7 +27,7 @@ angular.module('coreApp.header',[
 						.then(
 							function(response){
 								if(response.data.result == "SUCCESS"){
-									self.menu = response.data.data.menu_list;
+									self.result = response.data.data.menu_list;
 									AdminLoginService.setHeaderMenu(self.menu);
 								}else{
 									alert('HeaderController Error! No header info for this admin.');
