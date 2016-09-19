@@ -16,9 +16,6 @@ angular.module('adminDashboardPage', [
 	var self = this;
 
 	self.name = "adminDashboardPage";
-//	self.pattern = "/get_dashboard_info";
-	self.pattern = "/rmget_dashboard_info";
-	self.data = {};
 	self.result ={};
 	self.admin = AdminLoginService.getAdmin();
 	if(typeof self.admin != "undefined" && self.admin.id != 0){

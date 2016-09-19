@@ -13,6 +13,7 @@ angular.module('coreApp.header',[
 			self.admin = AdminLoginService.getAdmin();
 			self.result = AdminLoginService.getHeaderMenu();
 		}else{
+			alert('getAdminInfo');
 			self.promise = AdminLoginService.getAdminInfo();
 			self.promise
 			.then(
