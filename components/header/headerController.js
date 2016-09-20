@@ -55,7 +55,7 @@ angular.module('coreApp.header',[
 			.then(
 				function(response){
 					if(response.data.result == "SUCCESS"){
-						$window.location.href = "/admin/login/view";
+						$window.location.href = "#/admin/login/view";
 					}
 				}, function(response){
 
