@@ -10,9 +10,11 @@ angular.module('coreApp.header',[
 		var self = this;
 
 		if(AdminLoginService.getAdmin()){
+			alert(123);
 			self.admin = AdminLoginService.getAdmin();
 			self.result = AdminLoginService.getHeaderMenu();
 		}else{
+			alert(456);
 			self.promise = AdminLoginService.getAdminInfo();
 			self.promise
 			.then(
@@ -55,6 +57,8 @@ angular.module('coreApp.header',[
 			.then(
 				function(response){
 					if(response.data.result == "SUCCESS"){
+						self.admin = '';
+						self.result = '';
 						$window.location.href = "#/admin/login/view";
 					}
 				}, function(response){
