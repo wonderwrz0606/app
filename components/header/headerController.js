@@ -6,15 +6,13 @@ angular.module('coreApp.header',[
 
 .component('appHeader', {
 	templateUrl: 'components/header/header.html',
-	controller: function headerController($window, AdminLoginService) {
+	controller: function headerController($window, $location, AdminLoginService) {
 		var self = this;
 
 		if(AdminLoginService.getAdmin()){
-			alert(123);
 			self.admin = AdminLoginService.getAdmin();
 			self.result = AdminLoginService.getHeaderMenu();
 		}else{
-			alert(456);
 			self.promise = AdminLoginService.getAdminInfo();
 			self.promise
 			.then(
@@ -57,9 +55,10 @@ angular.module('coreApp.header',[
 			.then(
 				function(response){
 					if(response.data.result == "SUCCESS"){
-						self.admin = '';
-						self.result = '';
-						$window.location.href = "#/admin/login/view";
+						AdminLoginService.setAdmin('');
+						AdminLoginService.setHeaderMenu('');
+						$location.url('#/admin/login/view');
+						// $window.location.href = "#/admin/login/view";
 					}
 				}, function(response){
 
