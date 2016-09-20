@@ -30,7 +30,7 @@ angular.module('coreApp.header',[
 									self.result = response.data.data.menu_list;
 									AdminLoginService.setHeaderMenu(self.menu);
 								}else{
-									alert('HeaderController Error! No header info for this admin.');
+									// alert('HeaderController Error! No header info for this admin.');
 								}
 							},
 							function(response){
@@ -38,11 +38,27 @@ angular.module('coreApp.header',[
 							}
 						);
 					}else{
-						alert("HeaderController Error! Invalid username/password.");
+						if(response.data.result == "ADMIN_LOGIN_EXPIRED"){
+							self.logout();
+						}
 					}
 				},
 				function(response){
 					alert("HeaderController API Error!");
+				}
+			);
+		}
+
+		self.logout = function(){
+			self.promise = AdminLoginService.logout();
+			self.promise
+			.then(
+				function(response){
+					if(response.data.result == "SUCCESS"){
+						$window.location.href = "/admin/login/view";
+					}
+				}, function(response){
+
 				}
 			);
 		}

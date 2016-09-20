@@ -20,7 +20,8 @@ angular.module('adminLoginService',[
 		login: login,
 		getHeaderMenuInfo: getHeaderMenuInfo,
 		setHeaderMenu: setHeaderMenu,
-		getHeaderMenu: getHeaderMenu
+		getHeaderMenu: getHeaderMenu,
+    logout: logout
 	}
 
 	function setAdmin(_admin){
@@ -68,4 +69,11 @@ angular.module('adminLoginService',[
 		promise = HttpService.post(pattern, data);
 		return promise;
 	}
+
+  function logout(){
+    pattern = '/logout';
+		data = '';
+		promise = HttpService.get(pattern, data);
+		return promise;
+  }
 });
