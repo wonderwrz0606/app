@@ -57,7 +57,7 @@ angular.module('coreApp.header',[
 			self.promise
 			.then(
 				function(response){
-					// alert('logout: ' + response.data.result);
+					alert('logout: ' + response.data.result);
 					console.log('logout: ' + response.data.result);
 					if(response.data.result == "SUCCESS"){
 						AdminLoginService.setAdmin('');
