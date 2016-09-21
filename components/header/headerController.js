@@ -17,7 +17,9 @@ angular.module('coreApp.header',[
 			self.promise
 			.then(
 				function(response){
+					alert('header');
 					if(response.data.result == "SUCCESS"){
+						alert('header:' + response.data.result);
 						self.admin = response.data.data.admin;
 						AdminLoginService.setAdmin(self.admin);
 
@@ -38,6 +40,7 @@ angular.module('coreApp.header',[
 							}
 						);
 					}else{
+						alert('header:' + response.data.result);
 						if(response.data.result == "ADMIN_LOGIN_EXPIRED"){
 							self.logout();
 						}
@@ -54,11 +57,13 @@ angular.module('coreApp.header',[
 			self.promise
 			.then(
 				function(response){
+					// alert('logout: ' + response.data.result);
+					console.log('logout: ' + response.data.result);
 					if(response.data.result == "SUCCESS"){
 						AdminLoginService.setAdmin('');
 						AdminLoginService.setHeaderMenu('');
-						$location.url('#/admin/login/view');
-						// $window.location.href = "#/admin/login/view";
+						// $location.url('#/admin/login/view');
+						$window.location.href = "#/admin/login/view";
 					}
 				}, function(response){
 

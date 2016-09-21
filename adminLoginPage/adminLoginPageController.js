@@ -16,6 +16,14 @@ angular.module('adminLoginPage', [
 	self.password = '';
 	self.status = "FALSE";
 
+// Check if already login
+	if(AdminLoginService.getAdmin()){
+		console.log(AdminLoginService.getAdmin()['base_id']);
+		$window.location.href = '#/admin/dashboard/view';
+	}else{
+		console.log('service destory');
+	}
+
 // Login with the input username & password
 	self.login = function(){
 		self.promise = AdminLoginService.login(self.username, self.password);
@@ -26,7 +34,7 @@ angular.module('adminLoginPage', [
 					self.admin = response.data.data.admin;
 					AdminLoginService.setAdmin(self.admin);
 
-					// Get request header menu
+					// Get header menu
 					self.promise = AdminLoginService.getHeaderMenuInfo();
 					self.promise
 					.then(

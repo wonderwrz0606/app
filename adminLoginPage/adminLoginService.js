@@ -10,6 +10,7 @@ angular.module('adminLoginService',[
 	var pattern;
 	var data;
 	var promise;
+  var self = this;
 
 	return{
 		setAdmin: setAdmin,
@@ -71,6 +72,8 @@ angular.module('adminLoginService',[
 	}
 
   function logout(){
+    // self.setAdmin('');
+    // self.setHeaderMenu('');
     pattern = '/logout';
 		data = '';
 		promise = HttpService.get(pattern, data);
