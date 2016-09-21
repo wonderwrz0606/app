@@ -8,7 +8,7 @@ angular.module('adminDashboardPage', [
   'ngMap',
 	'adminDashboardService',
 	'adminLoginService',
-	'coreApp.header',
+	'coreApp.adminHeader',
 	'coreApp.footer'
 ])
 

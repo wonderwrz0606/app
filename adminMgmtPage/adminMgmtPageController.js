@@ -4,7 +4,7 @@ angular.module('adminMgmtPage', [
 	'ngRoute',
 	'coreService',
 	'adminLoginService',
-	'coreApp.header',
+	'coreApp.adminHeader',
 	'coreApp.footer'
 ])
 

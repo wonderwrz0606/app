@@ -24,45 +24,6 @@
 
 			        <div class="collapse navbar-collapse navbar-ex1-collapse">
 
-			          <!-- <ul class="nav navbar-nav side-nav nav_left_padding_top"> -->
-			          <ul ng-model="menu_list" class="nav navbar-nav navbar-left scrollable-menu nav_left_padding_top">
-			            <li><a href="#/admin/login/view">Test Login</a></li>
-	    				<li ng-repeat="menu in $ctrl.result">
-	    					<a href="{{menu.angular_url}}">
-	    						<span class="{{menu.class}} width-100 span-block"></span>
-	    						<span class="span-block">{{menu.name}}</span>
-	    					</a></li>
-			          </ul>
-
-			          <ul class="nav navbar-nav navbar-right navbar-user nav_right_padding_top">
-			            <!-- language switch -->
-			             <li>
-			             	<div class="switch-language">
-			 					<label class="switch-field">Language</label>
-			 					<select id="language" class="field" onchange="window.location='index.php?{$query_str}&language='+document.getElementById('language').value">
-			 						<option value="en" {if $language eq 'en'} selected='selected' {/if}>English</option>
-			 						<option value="zh" {if $language eq 'zh'} selected='selected' {/if}>Chinese</option>
-			 					</select>
-			 				</div>
-			             </li>
-			             <!-- language switch -->
-
-			            <li class="dropdown user-dropdown" ng-click="$ctrl.logout()">
-			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				              <div class="admin-profile-thumb">
-				                  <img src="images/admin.png">
-				              </div>
-			              	  {{$ctrl.admin.first_name}} {{$ctrl.admin.last_name}}<b class="caret"></b>
-			              </a>
-			              <ul class="dropdown-menu">
-			                <li><a href="index.php?page=admin_manager"><i class="fa fa-user"></i> Profile</a></li>
-			                <li><a href="index.php?action=logout"><i class="fa fa-power-off"></i>log_out</a></li>
-			              </ul>
-			            </li>
-			          </ul>
-
-
-
 			        </div><!-- /.navbar-collapse -->
 	        	</div>
 	      </nav>
