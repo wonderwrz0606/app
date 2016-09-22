@@ -10,7 +10,7 @@ angular.module('coreApp.adminHeader',[
 		var self = this;
 
 		if(AdminLoginService.getAdmin()){
-			alert(yes);
+			alert('yes');
 			self.admin = AdminLoginService.getAdmin();
 			self.result = AdminLoginService.getHeaderMenu();
 		}else{
