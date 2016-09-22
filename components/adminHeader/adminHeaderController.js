@@ -10,6 +10,7 @@ angular.module('coreApp.adminHeader',[
 		var self = this;
 
 		if(AdminLoginService.getAdmin()){
+			alert(yes);
 			self.admin = AdminLoginService.getAdmin();
 			self.result = AdminLoginService.getHeaderMenu();
 		}else{
@@ -18,6 +19,7 @@ angular.module('coreApp.adminHeader',[
 			.then(
 				function(response){
 					if(response.data.result == "SUCCESS"){
+						alert('no');
 						self.admin = response.data.data.admin;
 						AdminLoginService.setAdmin(self.admin);
 
