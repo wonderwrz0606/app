@@ -17,9 +17,7 @@ angular.module('coreApp.adminHeader',[
 			self.promise
 			.then(
 				function(response){
-					alert('header');
 					if(response.data.result == "SUCCESS"){
-						alert('header:' + response.data.result);
 						self.admin = response.data.data.admin;
 						AdminLoginService.setAdmin(self.admin);
 
