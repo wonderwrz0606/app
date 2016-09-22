@@ -10,7 +10,7 @@ angular.module('coreApp.adminHeader',[
 		var self = this;
 
 		if(AdminLoginService.getAdmin()){
-			alert('yes');
+			console.log('service exist');
 			self.admin = AdminLoginService.getAdmin();
 			self.result = AdminLoginService.getHeaderMenu();
 		}else{
@@ -19,7 +19,7 @@ angular.module('coreApp.adminHeader',[
 			.then(
 				function(response){
 					if(response.data.result == "SUCCESS"){
-						alert('no');
+						console.log('service not exist');
 						self.admin = response.data.data.admin;
 						AdminLoginService.setAdmin(self.admin);
 
@@ -57,7 +57,6 @@ angular.module('coreApp.adminHeader',[
 			self.promise
 			.then(
 				function(response){
-					alert('logout: ' + response.data.result);
 					console.log('logout: ' + response.data.result);
 					if(response.data.result == "SUCCESS"){
 						AdminLoginService.setAdmin('');

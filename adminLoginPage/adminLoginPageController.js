@@ -18,10 +18,7 @@ angular.module('adminLoginPage', [
 
 // Check if already login
 	if(AdminLoginService.getAdmin()){
-		console.log(AdminLoginService.getAdmin()['base_id']);
 		$window.location.href = '#/admin/dashboard/view';
-	}else{
-		console.log('service destory');
 	}
 
 // Login with the input username & password
