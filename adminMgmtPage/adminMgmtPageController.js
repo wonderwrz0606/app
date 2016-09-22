@@ -32,21 +32,21 @@ angular.module('adminMgmtPage', [
 	}else if($routeParams.createId){
 
 	}else{
-		self.data = '{"admin_id":' + self.admin_user.id + '}';
-		self.pattern = '/get_admin_list';
-		self.promise = HttpService.post(self.pattern, self.data);
-		self.promise
-		.then(
-			function(response){
-				if(response.data.result == "SUCCESS"){
-					self.admin_list = response.data.data.admin_list;
-				}else{
-					alert("adminMgmtPage Error! No info for admin.");
-				}
-			},
-			function(response){
-				alert("adminMgmtPage Error!");
-			}
-		);
+		// self.data = '{"admin_id":' + self.admin_user.id + '}';
+		// self.pattern = '/get_admin_list';
+		// self.promise = HttpService.post(self.pattern, self.data);
+		// self.promise
+		// .then(
+		// 	function(response){
+		// 		if(response.data.result == "SUCCESS"){
+		// 			self.admin_list = response.data.data.admin_list;
+		// 		}else{
+		// 			alert("adminMgmtPage Error! No info for admin.");
+		// 		}
+		// 	},
+		// 	function(response){
+		// 		alert("adminMgmtPage Error!");
+		// 	}
+		// );
 	}
 });
