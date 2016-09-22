@@ -31,6 +31,7 @@ angular.module('adminLoginPage', [
 		.then(
 			function(response){
 				if(response.data.result == "SUCCESS"){
+					self.status = "SUCCESS";
 					self.admin = response.data.data.admin;
 					AdminLoginService.setAdmin(self.admin);
 
