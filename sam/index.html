@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!--  Hello solarsystem Code -->
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script type="text/javascript" src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <!-- <script type="text/javascript" src="services/peopleService.js"></script> -->
+    <!--  Hello solarsystem Code -->
+    <script src="components/hello.js"></script>
+    <script src="components/about.js"></script>
+  </head>
+
+  <body ng-app="coreApp">
+    <div><button onClick="document.location.reload(true)">reload plunker (without changing the url)</button></div>
+
+    <a ui-sref="hello" ui-sref-active="active">Hello</a>
+    <a ui-sref="about" ui-sref-active="active">About</a>
+    <a ui-sref="people" ui-sref-active="active">People</a>
+
+
+    <ui-view></ui-view>
+  </body>
+</html>
