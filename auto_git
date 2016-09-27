@@ -1,0 +1,9 @@
+git stash
+git checkout master
+git pull origin master
+git checkout sam
+git stash pop
+git merge master
+git add --all
+git commit -m "$1"
+git push origin sam
