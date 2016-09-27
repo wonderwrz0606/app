@@ -5,4 +5,4 @@ Install Instruction:
 3. Install NodeJS on your computer;
 4. '$npm install --production';
 5. Modify 'git_auto' file to your branch;
-6. Use '$sh git_auto <your commit>' to push;
+6. Use '$sh git_auto "your commit"' to push;
