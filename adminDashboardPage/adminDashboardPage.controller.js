@@ -1,23 +1,14 @@
 'use strict';
 
-angular.module('adminDashboardPage', [
-	'ngRoute',
-	'ngAnimate',
-  'ngTouch',
-  'ui.bootstrap',
-  'ngMap',
-	'adminDashboardService',
-	'adminLoginService',
-	'coreApp.adminHeader',
-	'coreApp.footer'
-])
+angular.module('adminDashboard')
 
-.controller('adminDashboardPageCtrl', function($scope, AdminDashboardService, AdminLoginService, NgMap) {
+.controller('adminDashboardCtrl', function($scope, AdminDashboardService, NgMap) {
 	var self = this;
 
-	self.name = "adminDashboardPage";
+	self.name = "adminDashboard";
 	self.result ={};
 
+	// return "123";
 	self.promise = AdminDashboardService.get_dashboard_info();
 	self.promise
 	.then(
@@ -29,7 +20,7 @@ angular.module('adminDashboardPage', [
 			}
 		},
 		function(response){
-			alert("adminDashboardPageController Error");
+			alert("adminDashboardController Error");
 		}
 	);
 

@@ -66,9 +66,9 @@
 
 var app = angular.module('coreApp', [
   'ngRoute',
-  'adminLoginPage',
-  'adminDashboardPage',
-  'adminMgmtPage'
+  'adminLogin',
+  'adminDashboard',
+  'adminMgmt'
 ]);
 
 // This part has moved to app.config.js file
@@ -80,31 +80,31 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
     $routeProvider
     .when("/admin/dashboard/view", {
     	templateUrl : "adminDashboardPage/adminDashboardPage.view.html",
-    	controller: 'adminDashboardPageCtrl',
+    	controller: 'adminDashboardCtrl',
     	controllerAs : 'adminDashboardCtrl',
     	caseInsensitiveMatch : false
     })
     .when("/admin/adminMgmt/view", {
     	templateUrl : "adminMgmtPage/adminMgmtPage.view.html",
-    	controller: 'adminMgmtPageCtrl',
+    	controller: 'adminMgmtCtrl',
     	controllerAs : 'adminMgmtCtrl',
     	caseInsensitiveMatch : false
     })
     .when("/admin/adminMgmt/create/:createId", {
     	templateUrl : "adminMgmtPage/adminMgmtPage.create.html",
-    	controller: 'adminMgmtPageCtrl',
+    	controller: 'adminMgmtCtrl',
     	controllerAs : 'adminMgmtCtrl',
     	caseInsensitiveMatch : false
     })
     .when("/admin/adminMgmt/update/:adminId", {
     	templateUrl : "adminMgmtPage/adminMgmtPage.update.html",
-    	controller: 'adminMgmtPageCtrl',
+    	controller: 'adminMgmtCtrl',
     	controllerAs : 'adminMgmtCtrl',
     	caseInsensitiveMatch : false
     })
     .when("/admin/login/view",{
     	templateUrl : "adminLoginPage/adminLoginPage.view.html",
-    	controller: 'adminLoginPageCtrl',
+    	controller: 'adminLoginCtrl',
     	controllerAs : 'adminLoginCtrl',
     	caseInsensitiveMatch : false
     })

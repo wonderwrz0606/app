@@ -1,16 +1,8 @@
 'use strict';
 
-angular.module('adminLoginPage', [
-	'ngRoute',
-	'ngAnimate',
-	'ngTouch',
-	'ui.bootstrap',
-	'adminLoginService',
-	'coreApp.header',
-	'coreApp.footer'
-])
+angular.module('adminLogin')
 
-.controller('adminLoginPageCtrl', function($scope, $http, $window, AdminLoginService) {
+.controller('adminLoginCtrl', function($scope, $http, $window, AdminLoginService) {
 	var self = this;
 	self.username = '';
 	self.password = '';
@@ -42,19 +34,19 @@ angular.module('adminLoginPage', [
 								AdminLoginService.setHeaderMenu(self.result);
 								$window.location.href = '#/admin/dashboard/view';
 							}else{
-								alert('AdminLoginPageController Error! No header info for this admin.');
+								alert('AdminLoginController Error! No header info for this admin.');
 							}
 						},
 						function(response){
-							alert("AdminLoginPageController API Error!");
+							alert("AdminLoginController API Error!");
 						}
 					);
 				}else{
-					alert("AdminLoginPageController Error! Invalid username/password.");
+					alert("AdminLoginController Error! Invalid username/password.");
 				}
 			},
 			function(response){
-				alert("AdminLoginPageController API Error!");
+				alert("AdminLoginController API Error!");
 			}
 		);
 	}

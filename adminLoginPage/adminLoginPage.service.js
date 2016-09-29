@@ -1,7 +1,6 @@
-angular.module('adminLoginService',[
-  'ngCookies',
-  'coreService'
-])
+'use strict';
+
+angular.module('adminLogin')
 
 .factory('AdminLoginService', function(HttpService, $cookies){
 	var admin;

@@ -1,9 +1,11 @@
-angular.module('adminDashboardService',[
-  'coreService'
-])
+'use strict';
 
-.factory('AdminDashboardService', function($http, HttpService, CONFIG) {
+angular.module('adminDashboard')
+
+.factory('AdminDashboardService', function(HttpService, CONFIG) {
   var promise;
+  var pattern;
+  var data;
 
 	return {
 		get_dashboard_info : get_dashboard_info

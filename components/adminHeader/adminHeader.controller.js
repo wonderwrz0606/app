@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('coreApp.adminHeader',[
-	'adminLoginService'
-])
+angular.module('coreApp.adminHeader')
 
 .component('adminHeader', {
 	templateUrl: 'components/adminHeader/adminHeader.html',

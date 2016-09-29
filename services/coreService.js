@@ -1,4 +1,6 @@
-angular.module('coreService',['ngCookies'])
+'use strict';
+
+angular.module('coreService')
 //First way to write service in Angular: service
 //.service('OperrHttpService', function ($http, CONFIG) {
 //	this.testConstant = function(){
