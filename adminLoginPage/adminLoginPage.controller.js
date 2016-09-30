@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('adminLogin')
+angular.module('coreApp.adminLogin')
 
-.controller('adminLoginCtrl', function($scope, $http, $window, AdminLoginService) {
+.controller('adminLoginCtrl', function($state, $window, AdminLoginService) {
 	var self = this;
 	self.username = '';
 	self.password = '';
@@ -10,7 +10,8 @@ angular.module('adminLogin')
 
 // Check if already login
 	if(AdminLoginService.getAdmin()){
-		$window.location.href = '#/admin/dashboard/view';
+		$state.go('.dashboard');
+		// $window.location.href = '#/admin/dashboard/view';
 	}
 
 // Login with the input username & password
@@ -32,7 +33,9 @@ angular.module('adminLogin')
 							if(response.data.result == "SUCCESS"){
 								self.result = response.data.data.menu_list;
 								AdminLoginService.setHeaderMenu(self.result);
-								$window.location.href = '#/admin/dashboard/view';
+								$state.go('.dashboard');
+								alert(123);
+								// $window.location.href = '#/admin/dashboard/view';
 							}else{
 								alert('AdminLoginController Error! No header info for this admin.');
 							}

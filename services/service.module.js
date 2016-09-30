@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module('coreService',[
+angular.module('coreApp.coreService',[
   'ngCookies'
 ]);

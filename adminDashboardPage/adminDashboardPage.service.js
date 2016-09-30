@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('adminDashboard')
+angular.module('coreApp.adminDashboard')
 
 .factory('AdminDashboardService', function(HttpService, CONFIG) {
   var promise;

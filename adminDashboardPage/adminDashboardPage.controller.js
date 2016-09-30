@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('adminDashboard')
+angular.module('coreApp.adminDashboard')
 
 .controller('adminDashboardCtrl', function($scope, AdminDashboardService, NgMap) {
 	var self = this;

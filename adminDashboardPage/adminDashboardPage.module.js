@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('adminDashboard', [
+angular.module('coreApp.adminDashboard', [
 	'ngRoute',
 	'ngAnimate',
   'ngTouch',
@@ -8,5 +8,5 @@ angular.module('adminDashboard', [
   'ngMap',
 	'coreApp.adminHeader',
 	'coreApp.footer',
-  'coreService'
+  'coreApp.coreService'
 ]);

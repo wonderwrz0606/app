@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('coreService')
+angular.module('coreApp.coreService')
 //First way to write service in Angular: service
 //.service('OperrHttpService', function ($http, CONFIG) {
 //	this.testConstant = function(){

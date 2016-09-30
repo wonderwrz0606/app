@@ -1,5 +1,6 @@
 'use strict';
 
 angular.module('coreApp.adminHeader',[
-	'adminLogin'
+	'coreApp.adminLogin',
+	'ui.router'
 ]);

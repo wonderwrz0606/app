@@ -1,12 +1,13 @@
 'use strict';
 
-angular.module('adminLogin', [
+angular.module('coreApp.adminLogin', [
 	'ngRoute',
 	'ngAnimate',
 	'ngTouch',
   'ngCookies',
 	'ui.bootstrap',
+	'ui.router',
 	'coreApp.header',
 	'coreApp.footer',
-  'coreService'
+  'coreApp.coreService'
 ]);

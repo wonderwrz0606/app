@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('adminMgmt', [
+angular.module('coreApp.adminMgmt', [
 	'ngRoute',
-	'coreService',
+	'coreApp.coreService',
 	'coreApp.adminHeader',
 	'coreApp.footer'
 ]);

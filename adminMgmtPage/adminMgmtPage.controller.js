@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('adminMgmt')
+angular.module('coreApp.adminMgmt')
 
 .controller('adminMgmtCtrl', function($scope, $routeParams, HttpService) {
 	var self = this;

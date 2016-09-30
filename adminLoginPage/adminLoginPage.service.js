@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('adminLogin')
+angular.module('coreApp.adminLogin')
 
 .factory('AdminLoginService', function(HttpService, $cookies){
 	var admin;
