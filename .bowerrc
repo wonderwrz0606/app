@@ -1,0 +1,4 @@
+{
+  "strict-ssl": true,
+  "directory" : "public/bower_components"
+}

@@ -1,5 +1,3 @@
 'use strict';
 
-angular.module('coreApp.header',[
-
-]);
+angular.module('coreApp.header',[]);
