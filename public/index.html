@@ -4,33 +4,47 @@
 <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js" ng-cloak> <!--<![endif]-->
 <head>
-	<!--<base href="./public/">-->
-	<base href="/public">
+	<base href="/">
+	<!--<base href="/public">-->
 	<meta charset="utf-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  	<meta name="description" content="">
+  	<meta name="description" content="Operr System V2">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 
   	<title>Operr System V2</title>
 
-	<!-- Add custom CSS here -->
-	<!--<link rel="stylesheet" href="css/bootstrap.css">-->
-	<!--<link rel="stylesheet" href="css/media.css">-->
-<!-- 	<link rel="stylesheet" href="../admin/css/dtpicker/jquery.simple-dtpicker.css"/> -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" href="bower_components/Font-Awesome/css/font-awesome.min.css">
+
+	<!--TODO what is these style sheet for-->
 	<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700'>
 	<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Slab'>
-	<!--<link rel="stylesheet" href="css/style.css">-->
+
+	<!--<link rel="stylesheet" href="css/bootstrap.css">-->
+	<!--<link rel="stylesheet" href="css/media.css">-->
+	<!--<link rel="stylesheet" href="../admin/css/dtpicker/jquery.simple-dtpicker.css"/> -->
+
+
+
+	<!-- custom CSS -->
+	<!--TODO Config CSS magnification -->
+	<link rel="stylesheet" href="stylesheets/app.css">
+
+
+
 	<!--<link rel="stylesheet" href="css/sb-admin.css">-->
 </head>
 <body ng-controller="mainCtrl">
   	<!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <p class="browsehappy">
+		  You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+	  </p>
   	<![endif]-->
 
-  	<div ui-view="header"></div>
-	<div ui-view="content"></div>
-	<div ui-view="footer"></div>
+  	<!--<div ui-view="header"></div>-->
+	<!--<div ui-view="content"></div>-->
+	<!--<div ui-view="footer"></div>-->
+	<div ui-view></div>
+
 
 		<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi49lL84Iw110hJppU4AyXwb7OmGyFvOU"></script>-->
 		<!--<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>-->

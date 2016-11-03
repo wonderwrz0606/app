@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     var distFilename = 'scripts/bootstrapper.'+ uniqueKey +'.js';
     var distCSSFileName = 'stylesheets/main.min.' + uniqueKey + '.css';
 
-
+    var modRewrite = require('connect-modrewrite');
     //Connect - static directory
     var mountFolder = function(connect, dir) {
         return connect.static(require('path').resolve(dir));
@@ -123,12 +123,44 @@ module.exports = function(grunt) {
         },
         // Preview server configuration
         connect: {
+            server: {
+                options: {
+                    middleware: function (connect) {
+                        return [
+                            modRewrite (['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.jpg$ /index.html [L]']),
+                            mountFolder(connect, 'app')
+                        ];
+                    }
+                }
+            },
             livereload: {
                 options: {
                     port: SERVER_PORT,
                     open: true,
-                    base:'public',
-                    hostname: 'localhost'
+                    //"base" this is use for live-reload grunt server to solve html5 = true ui-router issue, used in grunt start task
+                    base:[
+                        '.tmp',
+                        '<%= config.app %>'
+                    ],
+                    hostname: 'localhost',
+                    //"base" this is use for live-reload grunt server to solve html5 = true ui-router issue, used in grunt start task
+                    middleware: function (connect, options) {
+                        var middlewares = [];
+
+                        middlewares.push(modRewrite(['^[^\\.]*$ /index.html [L]'])); //Matches everything that does not contain a '.' (period)
+                        options.base.forEach(function (base) {
+                            middlewares.push(connect.static(base));
+                        });
+
+                        middlewares.push(
+                            connect.static('.tmp'),
+                            connect().use(
+                                '/bower_components',
+                                connect.static('./bower_components')
+                            )
+                        );
+                        return middlewares;
+                    }
                 }
             },
             test: {
