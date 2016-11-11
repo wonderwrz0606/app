@@ -1,0 +1,73 @@
+<!--<header class="navbar navbar-inverse index-navbar-primary">-->
+    <!--<section class="container-fluid">-->
+        <!--<div class="row">-->
+            <div id="wrapper">
+
+                <!-- Sidebar -->
+                <div id="nav_div">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                        <div class="container-fluid">
+                            <div class="navbar-header" style="padding-top: 2px">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                    <span class="sr-only">Navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="" href="#">
+                                    <img src="https://platform.ecarride.com/operr_dev/admin/images/logo.png">
+                                </a>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+
+                            <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                                <!-- <ul class="nav navbar-nav side-nav nav_left_padding_top"> -->
+                                <ul ng-model="menu_list" class="nav navbar-nav navbar-left scrollable-menu nav_left_padding_top">
+                                    <li><a href="#/admin/login/view">Test Login</a></li>
+                                    <li ng-repeat="menu in $ctrl.result">
+                                        <a href="{{menu.angular_url}}">
+                                            <span class="{{menu.class}} width-100 span-block"></span>
+                                            <span class="span-block">{{menu.name}}</span>
+                                        </a></li>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right navbar-user nav_right_padding_top">
+                                    <!-- language switch -->
+                                    <li>
+                                        <div class="switch-language">
+                                            <label class="switch-field">Language</label>
+                                            <select id="language" class="field" onchange="window.location='index.php?{$query_str}&language='+document.getElementById('language').value">
+                                                <option value="en" {if $language eq 'en'} selected='selected' {/if}>English</option>
+                                                <option value="zh" {if $language eq 'zh'} selected='selected' {/if}>Chinese</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <!-- language switch -->
+
+                                    <li class="dropdown user-dropdown" ng-click="">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <div class="admin-profile-thumb">
+                                                <img src="https://platform.ecarride.com/operr_dev/admin/images/logo.png">
+                                            </div>
+                                            {{$ctrl.admin.first_name}} {{$ctrl.admin.last_name}}<b class="caret"></b>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="index.php?page=admin_manager"><i class="fa fa-user"></i> Profile</a></li>
+                                            <li><a href="index.php?action=logout"><i class="fa fa-power-off"></i>log_out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+
+
+                            </div><!-- /.navbar-collapse -->
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+        <!--</div>-->
+    <!--</section>-->
+<!--</header>-->

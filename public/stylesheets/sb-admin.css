@@ -336,7 +336,7 @@ table.tablesorter thead tr th:hover {
 }
 .row.margin{ margin:10% 0px 0px 0px; width:95% !important; }
 .side-nav{
-	$margin-top:110px !important;
+	margin-top:110px !important;
 }
 .brand-logo2{
 	width:100px;
@@ -364,7 +364,7 @@ table.tablesorter thead tr th:hover {
     z-index: 2147483647;
 }
 .side-nav{
-	$margin-top:110px !important;
+	margin-top:110px !important;
 }
 .brand-logo2{
 	width:100px;
@@ -476,7 +476,7 @@ margin-top:10px;
 }
 .table-content td{
 	text-align:center;
-	$height:100px;
+	height:100px;
 }
 .driver-image2{
 	width:64px !important;
@@ -488,7 +488,7 @@ margin-top:10px;
 	height:100%; 
 	border-radius:50% !important; 
 	/*border:2px solid #cccccc; */
-	$margin-left:15px; 
+	margin-left:15px;
 }
 .dash-check{
 	width:50px;
@@ -697,7 +697,7 @@ body.bg{  /*background:url(../images/login-bg.jpg) no-repeat fixed center; heigh
 }
 .dash-content-all{
 	background-color:#ffffff;	
-	$overflow:auto;
+	overflow:auto;
 }
 .table-header{
 	font-weight:bold;

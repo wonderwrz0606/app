@@ -320,8 +320,10 @@ module.exports = function(grunt) {
             target: {
                 files: {
                     "public/stylesheets/main.min.css": [
+                        'public/stylesheets/bootstrap.css',
+                        'public/stylesheets/sb-admin.css',
+                        'public/stylesheets/media.css',
                         'public/stylesheets/app.css',
-                        'public/stylesheets/**/*.css',
                         '!public/stylesheets/main.min.css'
                     ]
                 }

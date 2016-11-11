@@ -17,6 +17,8 @@ define(['angular', 'angular-ui-router'],function(angular){
             $urlMatcherFactoryProvider.strictMode(false);
 
             $stateProvider
+
+                /*TODO Admin App Top Level Secure Checking State*/
                 .state('adminSecure',{
                     url: "/admin",
                     abstract: true,
@@ -25,15 +27,26 @@ define(['angular', 'angular-ui-router'],function(angular){
                         secureNum : function(){
                             console.warn('Current State: "adminSecure"');
                         },
-                        data: function($q, $state, $timeout) {
+                        data: function($q, $state, $timeout, $rootScope) {
                             var deferred = $q.defer();
 
+                            //TODO Add Admin User Login Service   make it to "Asynchronous" call
+                            // $rootScope.adminUserInfoObject = adminUserLoginService.getAdminUserInfo();
+
+                            //TODO this  "$rootScope.adminUserInfoObject.adminId"  condition need to be changed
+                            if(Boolean($rootScope.adminUserInfoObject)){
+                                var adminUserInfoObject = $rootScope.adminUserInfoObject;
+                            }else{
+                                var adminUserInfoObject = {};
+                            }
+
                             $timeout(function() {
-                                if (true) {
-                                    debugger;
-                                    $state.go('adminLoginTest');
+                                if (!adminUserInfoObject.length) {
+                                    // no user info detected, kick user to "adminLogin" Page
+                                    $state.go('adminLogin');
                                     deferred.reject();
                                 } else {
+                                    // enter state because user info detected
                                     deferred.resolve();
                                 }
                             });
@@ -42,41 +55,184 @@ define(['angular', 'angular-ui-router'],function(angular){
                         }
                     }
                 })
-                // .state('adminSecure.login', {
-                //     url: '/login',
-                //     template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
-                //     resolve: {
-                //         data: [function () {
-                //             console.warn('Current State: "adminSecure.admin"');
-                //         }]
-                //     },
-                //     parent:'adminSecure'
-                // })
                 .state("adminSecure.dashboard", {
                     url: "/dashboard",
                     template:'<button ui-sref="adminSecure.admin">Nav to Admin State</button>',
+                    parent:'adminSecure',
                     resolve: {
                         data: [function () {
                             console.warn('Current State: "adminSecure.dashboard"');
                         }]
-                    },
-                    parent:'adminSecure'
+                    }
                 })
-
-                /*TODO*/
-                // Single login state for Admin user use
-                .state('adminLoginTest', {
-                    url: '/adminLoginTest',
-                    templateUrl:'views/admin-views/adminLoginPage.html',
+                .state('adminSecure.admin', {
+                    url: '/admin',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
                     resolve: {
                         data: [function () {
-                            console.warn('Current State: "adminLoginTest"');
+                            console.warn('Current State: "adminSecure.admin"');
                         }]
                     }
                 })
-                // templateUrl:'<div>Admin Login Test Page</div>',
+                .state('adminSecure.user', {
+                    url: '/user',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.user"');
+                        }]
+                    }
+                })
+                .state('adminSecure.driver', {
+                    url: '/driver',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.driver"');
+                        }]
+                    }
+                })
+                .state('adminSecure.vehicle', {
+                    url: '/vehicle',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.vehicle"');
+                        }]
+                    }
+                })
+                .state('adminSecure.billingTrip', {
+                    url: '/billing_trip',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.billingTrip"');
+                        }]
+                    }
+                })
+                .state('adminSecure.rateBook', {
+                    url: '/rate_book',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.rateBook"');
+                        }]
+                    }
+                })
+                .state('adminSecure.company', {
+                    url: '/company',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.company"');
+                        }]
+                    }
+                })
+                .state('adminSecure.base', {
+                    url: '/base',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.base"');
+                        }]
+                    }
+                })
+                .state('adminSecure.feedback', {
+                    url: '/feedback',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.feedback"');
+                        }]
+                    }
+                })
+                .state('adminSecure.dispatching', {
+                    url: '/dispatching',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.dispatching"');
+                        }]
+                    }
+                })
+                .state('adminSecure.map', {
+                    url: '/map',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.map"');
+                        }]
+                    }
+                })
+                .state('adminSecure.employee', {
+                    url: '/employee',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.employee"');
+                        }]
+                    }
+                })
+                .state('adminSecure.preSchedule', {
+                    url: '/pre_schedule',
+                    template:'<button ui-sref="secure.dashboard">Nav to Dashboard State</button>',
+                    parent:'adminSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminSecure.preSchedule"');
+                        }]
+                    }
+                })
 
-                /*TODO*/
+
+                /*TODO Admin App Login Page*/
+                // Single login state for Admin user use
+                .state('adminLoginSecure',{
+                    abstract: true,
+                    template:'<header ui-view="header"></header>' +
+                             '<div ui-view="content" class="container main-content-container">' +
+                             '</div><footer ui-view="footer"></footer>',
+                    resolve:{
+                        data: [function () {
+                            console.warn('Current State: "adminLoginSecure"');
+                        }]
+                    }
+                })
+                .state('adminLogin', {
+                    url: '/admin_login',
+                    views:{
+                        'header': {
+                            templateUrl: 'views/adminViews/loginPage/adminLoginPageHeader.html'
+                        },
+                        'content': {
+                            templateUrl: 'views/adminViews/loginPage/adminLoginPageContent.html'
+                        },
+                        'footer': {
+                            templateUrl: 'views/adminViews/loginPage/adminLoginPageFooter.html'
+                        }
+                    },
+                    parent: 'adminLoginSecure',
+                    resolve: {
+                        data: [function () {
+                            console.warn('Current State: "adminLogin"');
+                        }]
+                    }
+                })
+                // template:'<div>Admin Login Test Page</div>',
+
+                /*TODO User App Login Page*/
                 // Single login state for normal user use
                 .state('userLoginTest', {
                     url: '/userLoginTest',
@@ -88,11 +244,10 @@ define(['angular', 'angular-ui-router'],function(angular){
                     }
                 });
 
-            $urlRouterProvider.otherwise('/admin/dashboard');
-
 
             /*TODO We need a top level login page or access deny page for selecting "admin" or "user" login*/
 
+            $urlRouterProvider.otherwise('/admin/dashboard');
             ////Navigate to a top level login page or an Access Deny Page for user to navigate to the right URL
             // $urlRouterProvider.otherwise('/loginChoice');
 

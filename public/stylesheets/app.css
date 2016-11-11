@@ -9,6 +9,10 @@
 .panel-title a {
   cursor: pointer;
 }
+body,
+html {
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
@@ -16,6 +20,41 @@ body {
   color: #333333;
   background: #ececec;
   font-size: 11px;
+}
+header {
+  width: 100%;
+  /*for small size screen stack together*/
+  min-height: 66px;
+}
+footer {
+  width: 100%;
+  min-height: 66px;
+  color: white;
+  background-color: #333;
+  border: 1px solid gray;
+  /*css for footer stick to bottom page*/
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.main-container {
+  /*css for footer stick to bottom page*/
+  position: relative;
+  min-height: 100%;
+  /*50px is height of footer*/
+  padding-bottom: 66px;
+}
+.main-content-container {
+  min-height: 300px;
+  padding: 40px 0px 40px 0px;
+  /*compatible reason we don't use calc*/
+  /*min-height: calc(100% - 100px);*/
+  /*min-height: -moz-calc(100% - 100px);*/
+  /*min-height: -webkit-calc(100% - 100px);*/
+}
+.main-content {
+  min-height: 300px;
 }
 /*
 *Collapsed under 1440 px.
